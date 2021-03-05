@@ -1,0 +1,93 @@
+<div class="settingContent">
+    <h5 *ngIf="personalDetailsNotCompleted" class="mb-3">Step 1 - Personal Details</h5>
+    <h5 *ngIf="!personalDetailsNotCompleted" class="mb-3">Personal Details</h5>
+
+    <form [formGroup]="personalDtlsFrm" (ngSubmit)="onClickPersDtlsSubmit(personalDtlsFrm)">
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Name </label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.fullname" formControlName="name"/></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Email Address </label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.email" formControlName="email"/></div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div><label for="">Age</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.age" formControlName="age"/></div>
+            </div> -->
+            <div class="col-md-4">
+                <div><label for="">Date of birth</label></div>
+                <!-- (value !== null) ? (value | date: 'dd/MM/yyyy') : "" -->
+                <!-- [ngModel]="(userPersDtls.dateOfBirth  !== null) ? (userPersDtls.dateOfBirth | date:'yyyy-MM-dd') : ''"  -->
+                <div><input type="date" class="txt-primary" placeholder="" 
+                    [ngModel]="userPersDtls.dateOfBirth | date:'yyyy-MM-dd'" 
+                    formControlName="dob"/></div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-md-4">
+                <div><label for="">Address</label></div>
+                <div><textarea class="txt-primary txt-area" placeholder="" [ngModel]="userPersDtls.address" rows="3" formControlName="address"></textarea></div>
+            </div> -->
+            <div class="col-md-4">
+                <div><label for="">City </label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.city" formControlName="city"/></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">State <label class="mandField">*</label></label></div>
+                <!-- <div *ngIf="personalDtlsFrm.controls.country.value == 'India'">
+                    <select class="txt-primary" formControlName="idianState">
+                        <option *ngFor="let oneState of allIndiaStates" (value)="oneState">{{oneState}}</option>
+                    </select>
+                </div>
+                <div *ngIf="personalDtlsFrm.controls.country.value != 'India'"> -->
+                <div >
+                        <input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.state" formControlName="state"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Country </label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.country" formControlName="country"/></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Mobile Country Code</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.countryCode" formControlName="countryCode"/></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Phone Number</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.phoneNum" formControlName="phoneNum"/></div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div><label for="">Pincode / Zipcode</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userPersDtls.pinCode" formControlName="pinCode"/></div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Upload Profile Image</label></div>
+                <div class="iconFileUpload">
+                    <label class="fileInputName" id="fileInputLbl">{{fileName}}</label>
+                    <input  #fileUpload123 type="file" class="fileInput" (change)="profImgFileUpload($event)" 
+                    accept=".png" formControlName="profImgFile" multiple />
+                    <i class="fa fa-upload" (click)="fileInputClick()"></i>
+                </div>
+            </div>
+        </div>        
+
+
+        <div class="row justify-content-center" style="height: 25px;">
+            <div *ngIf="errorMsg != ''" class="error-msg">&nbsp;{{errorMsg}}</div>
+            <div *ngIf="errorMsg == ''" class="success-msg">&nbsp;{{successMsg}}</div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <button *ngIf="!personalDetailsNotCompleted" class="btn-primary mlr-40" name="save">Save Details</button>
+            <button *ngIf="!personalDetailsNotCompleted" class="btn-primary btn-cancel mlr-40" name="btnCancel" (click)="onClickCancel()">Cancel</button>
+            <button *ngIf="personalDetailsNotCompleted" class="btn-primary mlr-60" name="save">Professional Details</button>
+        </div>
+    </form>
+
+
+</div>

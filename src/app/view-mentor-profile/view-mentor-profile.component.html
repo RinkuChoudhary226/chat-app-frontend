@@ -1,0 +1,21 @@
+<div class="container-fluid content">
+
+
+
+    <!-- Header START -->
+    <div class="header">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Mentor Profile</h4>
+            </div>
+            <div class="col-md-2"><a href="#" [routerLink]="['/mentor-calendar',selectedId]">
+                    <i class="fa fa-calendar">&nbsp;&nbsp;Calendar</i>
+                </a></div>
+        </div>
+
+        <div class="mentor-prof">
+            <app-view-profile mentorId="{{selectedId}}"></app-view-profile>
+            <!-- <app-mentorcalendar mentorid="{{selectedId}}"></app-mentorcalendar> -->
+        </div>
+    </div>
+</div>

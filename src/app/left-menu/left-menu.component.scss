@@ -1,0 +1,63 @@
+
+@import "../../styles/_colors.scss";
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 245px;
+    display: block;
+    z-index: 1050;
+    color: $body-text;
+    font-weight: 200;
+    background: #FFFFFF;
+    .logo, body > .navbar-collapse .logo {
+        padding: 15px 32px;
+    }
+    .logo {
+        padding: 15px 32px;
+        img {
+            width: 162px;
+            height: 56px;
+        }
+    }
+    .sidebar-wrapper {
+        margin-top: 10px;
+        width: 245px;
+        .nav .nav-link {
+            // list-style-type: none;
+            font-size: 15px;
+            margin-bottom: 10px;
+            display: block;
+            width: 245px;
+            padding: 8px 32px;
+            color: $body-text;
+            .fa {
+                margin-right: 12px;
+                margin-top: 2px;
+                color: #909090;
+                width: 20px;
+                text-align: center;
+            }
+        }
+        // Added  - START
+        .nav-link:hover {
+            color: $orange;
+                // border-left: 3px solid $orange;
+                i:hover {
+                color:$orange;
+                // font-weight: bold;
+            }
+        }
+        // END
+        .nav .active.nav-link {
+            color:$orange;
+            font-weight: bold;
+            border-left: 3px solid $orange;
+            .fa {
+                color:$orange;
+            }
+        }
+    }
+}

@@ -1,0 +1,251 @@
+@import "../../styles/colors";
+
+label
+{
+    margin-bottom: 5px;
+}
+
+.inline-header
+{
+    display: inline;
+}
+
+.mentors {
+    .card {
+        display: block;
+        padding-top: 20px;
+        border-radius: 10px;
+        margin-bottom: 32px;
+        border: none;
+        box-shadow: 0px 6px 20px #6E6E6E29;
+        .card-title {
+            margin-top: 10px;
+            // font-size: 1rem;
+            text-align: center;
+            .special {
+                font-size: 9.5px;
+                color: #909090;
+            }
+        }
+        .card-img-top {
+            height: 120px;
+            width: 120px;
+            border: 20px solid rgba(255,116,28,.3);
+            border-radius: 80px;
+            margin: 0 auto;
+        }
+        .card-text {
+            color: #909090;
+            height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+        .card-footer {
+            margin-top: 12px;
+            background : #ffffff;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            height: 50px;
+            .footer-link1, .footer-link2 {
+                text-align: center;
+                
+                i {
+                    padding-right: 12px;
+                }
+                a {
+                    color: #909090;;
+                }
+            }
+            .footer-link1 {
+                border-right: 1px solid rgba(0,0,0,.125);
+            }
+        }
+    }
+    .rating {
+        color: #D9D9D9;
+        margin-right:16px;
+        justify-content: flex-end;
+        // span {
+        //     margin-right:4px;
+        //     &.checked {
+        //         color:#FFD45F;
+        //     }
+        // }
+    }
+}
+
+.no-gutters
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.no-pad-lr {
+    padding-left: 0px;
+    padding-right: 0px;;
+}
+
+.no-mar-lr {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.mentors.list {
+    .card {
+        // display: flex;
+        // flex-direction: row;
+        padding: 10px;
+        margin-bottom: 20px;
+        .card-title {
+            margin-bottom: 0px;
+            margin-top: 0px;
+            width: 200px;
+        }
+        .card-img-top {
+            width: 75px;
+            height: 75px;
+            border: 15px solid rgba(255,116,28,.3);
+        }
+        // .card-body {
+            // padding: 0 0px;
+            // display: flex;
+            // flex-direction: row;
+            .card-text {
+                flex-grow: 0;
+                margin-left: 20px;
+            }
+        // }
+        .card-footer {
+            border: none;
+            align-items: center;
+            padding: 0px 0px;
+            padding-left: 10px;
+            margin-top: 0px;
+            .footer-link1, .footer-link2 {
+                border-left: 1px solid rgba(0,0,0,.125);
+                border-right: none;
+                height: 50px;
+                padding-top: 15px;
+                padding-left: 5px;
+            }
+            // flex-grow: 1;
+            // width: 400px;
+            div {
+                // border-left: 1px solid rgba(0,0,0,.125);
+                padding: 0 0px;
+            }
+        }
+    }
+    .rating {
+        justify-content: center;
+        color: #D9D9D9;
+        margin-right:0;
+        padding: 0 0 px;
+        span {
+            margin-right:4px;
+            &.checked {
+                color:#FFD45F;
+            }
+        }
+    }
+}
+
+
+// Filters form styles - START
+// These are taken from bootstrap and some values are overridden
+.modal-content {
+    border-radius: 20px;
+    width: 800px;
+    height: 460px;
+}
+.modal-header {
+    padding: 1rem 1.5rem 0 1.5rem;
+    border: 0;
+    .modal-title {
+        text-align: center;
+        width: 100%;
+    }
+}
+.modal-body {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+.col-md-6 {
+    padding: 0px 50px;
+}
+// // This is our own class
+// .modal-data
+// {
+//     margin-bottom: 16px;
+//     width: 310px;
+//     height: 32px;
+//     border-radius: 10px;
+//     // border-color: $body-text;
+
+//     &.pwd-data
+//     {
+//         margin-bottom: 8px;
+//         &:last-child {
+//             margin-top: 8px;
+//             margin-bottom: 16px;
+//         }
+
+//     }
+//     &.text-data
+//     {
+//         margin-bottom: 8px;
+//         height: 22px;
+//     }
+//     a {
+//         color: $body-text;
+//     }
+// }
+
+
+
+// .cards {
+//     background: #F0F0F0 0% 0% no-repeat padding-box;
+//     box-shadow: 0px 6px 10px #6E6E6E29;
+//     border-radius: 15px;
+//     margin: 16px 16px;
+//     padding: 20px;
+// }
+// .avatar {
+//     width: 130px;
+//     height: 130px;
+//     margin: 40px 0;
+//     border-radius: 150px;
+//     border: solid 15px rgba(255, 116, 28, .5);
+// }
+// .card-caption {
+//     color: $heading-text;
+//     position: relative;
+//     padding-top: 20px;
+//     padding-bottom: 20px;
+//     text-align: center;
+//     left: auto;
+//     right: auto;
+//     bottom: auto;
+//     padding: 0 12px;
+//     padding-bottom: 62px;;
+// }
+// .car-footer {
+//     border-top: solid 1px $gray;
+//     height: 62px;
+//     flex-flow: row wrap;
+//     align-items: center;
+//     justify-content: center;
+//     width: 100%;
+//     position: absolute;
+//     bottom: 0;
+// }
+// a {
+//     color: $body-text;
+//     &:hover{
+//         color: $link-color;
+//     }
+// }

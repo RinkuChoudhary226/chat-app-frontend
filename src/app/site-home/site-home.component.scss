@@ -1,0 +1,302 @@
+@import "../../styles/_colors.scss";
+
+.logo
+{
+    width: 200px;
+    margin-left: 18px;
+}
+
+.features-text
+{
+    font-size: 16px;
+}
+
+.mentors-cor {
+    .carousel-item {
+        .cards {
+            background: #F0F0F0 0% 0% no-repeat padding-box;
+            box-shadow: 0px 6px 10px #6E6E6E29;
+            border-radius: 15px;
+            margin: 16px 16px;
+            padding: 0px;
+        }
+        .avatar {
+            width: 115px;
+            height: 115px;
+            margin: 16px 0;
+            border-radius: 150px;
+            border: solid 15px rgba(255, 116, 28, .5);
+        }
+        .carousel-caption {
+            color: $heading-text;
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            padding: 0 12px;
+            padding-bottom: 62px;;
+            .card-text {
+                color: #909090;
+                height: 60px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+        }
+        .card-footer {
+            border-top: solid 1px $gray;
+            height: 50px;
+            flex-flow: row wrap;
+            margin-left: 0px;
+            margin-right: 0px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            padding: 0rem 1.25rem 0.75rem 1.25rem;
+        }
+        a {
+            color: $body-text;
+            &:hover{
+                color: $link-color;
+            }
+        }
+        .footer-link1 {
+            text-align: center;
+            border-right: solid 1px $gray;
+            width: 50%;
+            height: 50px;
+            justify-content: center;
+            padding-top:16px;
+            .icon  {
+                width: 16px;
+                height: 16px;
+                margin-right: 8px;
+                padding-top: 3px;
+            }
+        }
+        .footer-link2 {
+            text-align: center;
+            width: 50%;
+            height: 50px;
+            justify-content: center;
+            padding-top:16px;
+            .icon  {
+                width: 16px;
+                height: 16px;
+                margin-right: 8px;
+                padding-top: 3px;
+            }
+        }
+    }
+    .carousel-indicators {
+        display: none;
+    }
+    .carousel-control-next {
+        margin-right: -40px;
+        
+    }
+    .carousel-control-prev-icon {
+        background: url(../../assets/icons/prev.svg) no-repeat;
+        width: 25px;
+        height: 35px;
+        margin-right: 24px;
+    }
+    .carousel-control-next-icon {
+        background: url(../../assets/icons/next.svg) no-repeat;
+        width: 25px;
+        height: 35px;
+        margin-left: 24px;
+    }
+    .carousel-control-prev {
+        margin-left: -40px;
+    }
+}
+
+.no-gutters
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.testimonial-cor {
+    .carousel-item {
+        .cards {
+            background: #F0F0F0 0% 0% no-repeat padding-box;
+            box-shadow: 0px 6px 10px #6E6E6E29;
+            border-radius: 15px;
+            margin: 16px 16px;
+            padding: 20px;
+            width: 420px;
+            height: 385px;
+        }
+        .avatar {
+            width: 115px;
+            height: 115px;
+            margin: 40px 0;
+            border-radius: 150px;
+            border: solid 15px rgba(255, 116, 28, .5);
+        }
+        .carousel-caption {
+            color: $heading-text;
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            padding: 0 12px;
+            padding-bottom: 62px;;
+        }
+        .car-footer {
+            border-top: solid 1px $gray;
+            height: 62px;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        a {
+            color: $body-text;
+            &:hover{
+                color: $link-color;
+            }
+        }
+    }
+    .carousel-indicators {
+        display: none;
+    }
+    .carousel-control-prev-icon {
+        background: url(../../assets/icons/prev.svg) no-repeat;
+        width: 25px;
+        height: 35px;
+    }
+    .carousel-control-next-icon {
+        background: url(../../assets/icons/next.svg) no-repeat;
+        width: 25px;
+        height: 35px;
+    }
+    
+}
+
+
+// SignIn form styles - START
+// These are taken from bootstrap and some values are overridden
+.modal-content {
+    border-radius: 20px;
+    width: 370px;
+    height: 380px;
+}
+.message-model
+{
+    height: 180px;
+}
+.modal-header {
+    padding: 1rem 1.5rem 0 1.5rem;
+    border: 0;
+    .modal-title {
+        text-align: center;
+        width: 100%;
+    }
+}
+.modal-body {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+// This is our own class
+.modal-data
+{
+    margin-bottom: 16px;
+    width: 310px;
+    height: 32px;
+    border-radius: 10px;
+    // border-color: $body-text;
+
+    &.pwd-data
+    {
+        margin-bottom: 8px;
+        &:last-child {
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+
+    }
+    &.text-data
+    {
+        margin-bottom: 8px;
+        height: 22px;
+    }
+    a {
+        color: $body-text;
+    }
+    &.btn-ok
+    {
+        width: 100px;
+        margin-left: 100px;
+    }
+}
+.pwd-criteria
+{
+    color: $login-blue;
+    width: 320px;
+    height: 10px;
+    font-size : 10px;
+    margin-top: 7px;
+    margin-bottom: 16px;
+}
+
+.btn-primary
+{
+    margin-top: 0px;
+    height: 40px;
+    &:hover, &:active {
+        background-color: $orange;
+    }
+    &:focus, .focus {
+        background-color: $orange;
+    }
+}
+.btn-linkedIn
+{
+    height: 40px;
+    background-color: $login-blue;
+    &:hover, &:active {
+        background-color: $login-blue;
+    }
+    &:focus, .focus {
+        background-color: $login-blue;
+    }
+}
+
+.error-msg
+{
+    color: red;
+    font-size : 10px;
+    padding: 0 0 0 0;
+    margin-bottom: 14px;
+}
+
+.registration-msg
+{
+    color: $login-blue;
+    font-size : 10px;
+    padding: 0 0 0 0;
+    margin-bottom: 14px;
+}
+
+
+.signup-modal-content
+{
+    height: 530px;
+}
+// SignIn form styles - END

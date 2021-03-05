@@ -1,0 +1,53 @@
+<div class="container-fluid content">
+
+    <!-- Header START -->
+    <div class="header">
+        <h4>Update Your Settings</h4>
+    </div>
+    <!-- Header ENDS -->
+    <div class="clearfix"></div>
+
+    <!-- Settings Left Menu START -->
+    <div class="mt-2 mb-2 row">
+        <div class="col-md-2 no-gutters" >
+                <div id="settingsbar" class="settingsbar" data-color={this.props.color}>
+                    <div class="settingsbar-wrapper">
+                        <nav class="nav">
+                            <a href="#" class="nav-link" routerLink="/settings/profile"  routerLinkActive="active">
+                                <i class="fa fa-user float-left" role="=button">
+                                </i>
+                                <span class="float-left">Profile</span>
+                            </a>
+                            <a href="#" class="nav-link" routerLink="/settings/membership"  routerLinkActive="active" >
+                                <i class="fa fa-user-plus float-left" role="=button">
+                                </i>
+                                <span class="float-left">Your Membership</span>
+                            </a>
+                            <a href="#" class="nav-link" routerLink="/settings/pwdchange"  routerLinkActive="active" >
+                                <i class="fa fa-lock float-left" role="=button">
+                                </i>
+                                <span class="float-left">Change Password</span>
+                            </a>
+                            <a href="#" class="nav-link" routerLink="/settings/notif-set"  routerLinkActive="active" >
+                                <i class="fa fa-bell-o float-left" role="=button">
+                                </i>
+                                <span class="float-left">Notification Settings</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>         
+
+        </div>
+        <div class="col-10 no-gutters">
+            <div id="settingsContent" class="set-default" >
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Settings Left Menu END -->
+ 
+
+
+</div>

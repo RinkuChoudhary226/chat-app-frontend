@@ -1,0 +1,207 @@
+<div class="container-fluid content">
+    <div id='calendar' style="background-color: white;"></div>
+    <!-- <button (click)="createpopup()" style="
+    border-radius: 50%;
+    /* padding: 10px; */
+    background: #ff741c;
+    border-color: #ff741c;
+    border: none;
+    color: white;
+    font-size: xx-large;
+"><i class="fa fa-plus" style="
+    /* border-radius: 50%; */
+    padding: 10px;
+"></i></button> -->
+</div>
+
+
+<div class="modal fade" id="eventdetails" *ngIf="eventdetail" role="dialog">
+    <div class="modal-dialog" [ngClass]="(iseditevent)?'':'modal-lg'">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" style="margin-left: 0;" class="close" (click)="closeEditEvent()">&times;</button>
+                <h4 class="modal-title">Event Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div [ngClass]="(iseditevent)?'col-md-12':'col-md-6'">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" *ngIf="!iseditevent" for="eventName"><strong> Name :
+                                    </strong></label>
+                                <label class="col-form-label" *ngIf="!iseditevent">{{eventdetail.eventName}}</label>
+                                <label class=" col-form-label" *ngIf="iseditevent" for="eventName">Event Name</label>
+                                <input type="text" *ngIf="iseditevent" class="form-control" id="eventName"
+                                    placeholder="Event Name" [(ngModel)]="eventdetail.eventName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" *ngIf="!iseditevent"><strong> Agenda : </strong></label>
+                                <label class="col-form-label" *ngIf="!iseditevent">{{eventdetail.agenda}}</label>
+                                <label class="col-form-label" for="eventagenda" *ngIf="iseditevent">Agenda</label>
+                                <textarea type="text" *ngIf="iseditevent" class="form-control" id="eventagenda"
+                                    placeholder="Event Agenda" [(ngModel)]="eventdetail.agenda"> </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" *ngIf="!iseditevent"><strong> Start Date :
+                                    </strong></label>
+                                <label class="col-form-label" *ngIf="!iseditevent">{{eventdetail.startDate | date :
+                                    'medium'}}</label>
+                                <label class="col-form-label" *ngIf="iseditevent">Start Date</label>
+                                <input id="ctrl_startdate" *ngIf="iseditevent" appDatepicker data-cntid="ctrl_startdate"
+                                    (sectionChange)="eventdetail.startDate=$event.detail.selectedDate"
+                                    [attr.data-minDate]="minenddate" [(ngModel)]="eventdetail.startDate" type="text"
+                                    placeholder="Start time" class="form-control datetimepicker">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" *ngIf="!iseditevent"><strong> End Date : </strong></label>
+                                <label class="col-form-label" *ngIf="!iseditevent">{{eventdetail.endDate | date :
+                                    'medium'}}</label>
+                                <label class="col-form-label" *ngIf="iseditevent">End Date</label>
+                                <input id="ctrl_enddate" *ngIf="iseditevent" type="text" appDatepicker
+                                    data-cntid="ctrl_enddate"
+                                    (sectionChange)="eventdetail.endDate=$event.detail.selectedDate"
+                                    [attr.data-minDate]="eventdetail.startDate" [(ngModel)]="eventdetail.endDate"
+                                    placeholder="End time" class="form-control datetimepicker">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" *ngIf="!iseditevent"><strong> Max Attendees :
+                                    </strong></label>
+                                <label class="col-form-label" *ngIf="!iseditevent">{{eventdetail.maxattendees}}</label>
+                                <label class="col-form-label" *ngIf="iseditevent">Max Attendees</label>
+                                <input type="text" *ngIf="iseditevent" class="form-control" id="eventmaxattendees"
+                                    placeholder="Max Attendees" [(ngModel)]="eventdetail.maxattendees">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class="col-form-label" *ngIf="!iseditevent"><strong> Event URL :
+                                    </strong></label>
+                                <label class="col-form-label" *ngIf="!iseditevent">{{eventdetail.eventUrl}}</label>
+                                <label class="col-form-label" *ngIf="iseditevent">Event URL</label>
+                                <input type="text" *ngIf="iseditevent" class="form-control" id="eventmaxattendees"
+                                    placeholder="Event url" [(ngModel)]="eventdetail.eventUrl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="!iseditevent">
+                        <div class="row" *ngFor="let mentee of eventdetail.attendees">
+                            <div class="col-md-6">
+                                {{mentee.username}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" *ngIf="eventdetail.subscribe"
+                    (click)="subscribeEvent()">Subscribe
+                </button>
+                <button type="button" class="btn btn-default" *ngIf="eventdetail.canchange"
+                    (click)="unregisterEvent()">Unsubscribe
+                </button>
+                <button type="button" *ngIf="eventdetail.canmodify && !iseditevent" class="btn btn-default"
+                    (click)="editEvent()">Edit
+                    Event</button>
+                <button type="button" *ngIf="eventdetail.canmodify && iseditevent && eventdetail._id"
+                    class="btn btn-default" (click)="editCreateEvent()">Save
+                    Event</button>
+                <button type="button" *ngIf=" iseditevent && !eventdetail._id" class="btn btn-default"
+                    (click)="createEvents()">Save
+                    Event</button>
+                <button type="button" class="btn btn-default" *ngIf="eventdetail.canmodify"
+                    (click)="deleteEvent()">Delete Event</button>
+                <button type="button" class="btn btn-default" (click)="closeEditEvent()">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="slotdetails" *ngIf="slotdetail" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" style="margin-left: 0;" class="close" (click)="closeEditSlot()">&times;</button>
+                <h4 class="modal-title">Room Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label class="col-form-label" *ngIf="!iseditslot"><strong> Room Name : </strong></label>
+                        <label class="col-form-label" *ngIf="!iseditslot">{{slotdetail.roomname}}</label>
+                        <label class="col-form-label" *ngIf="iseditslot" for="slotroomname">Room Name</label>
+                        <input type="text" class="form-control" *ngIf="iseditslot" id="slotroomname"
+                            placeholder="Room Name" [(ngModel)]="slotdetail.roomname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label class="col-form-label" *ngIf="!iseditslot"><strong> Room URL : </strong></label>
+                        <label class="col-form-label" *ngIf="!iseditslot">{{slotdetail.room_url}}</label>
+                        <label class="col-form-label" *ngIf="iseditslot" for="slotroom_url">Room URL</label>
+                        <input type="text" class="form-control" *ngIf="iseditslot" id="slotroom_url"
+                            placeholder="Room Url" [(ngModel)]="slotdetail.room_url">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label class="col-form-label" *ngIf="!iseditslot"><strong> Start Date : </strong></label>
+                        <label class="col-form-label" *ngIf="!iseditslot">{{slotdetail.start | date :
+                            'medium'}}</label>
+                        <label class="col-form-label" *ngIf="iseditslot" for="slotstartdate">Start Date</label>
+                        <input id="slotstartdate" *ngIf="iseditslot" appDatepicker data-cntid="slotstartdate"
+                            (sectionChange)="slotdetail.start=$event.detail.selectedDate"
+                            [attr.data-minDate]="minenddate" [(ngModel)]="slotdetail.start" type="text"
+                            placeholder="Room Start Time" class="form-control datetimepicker">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label class="col-form-label" *ngIf="!iseditslot"><strong> End Date : </strong></label>
+                        <label class="col-form-label" *ngIf="!iseditslot">{{slotdetail.end | date :
+                            'medium'}}</label>
+                        <label class="col-form-label" *ngIf="iseditslot" for="slotenddate">End Date</label>
+                        <input id="slotenddate" appDatepicker data-cntid="slotenddate"
+                            (sectionChange)="slotdetail.end=$event.detail.selectedDate"
+                            [attr.data-minDate]="slotdetail.start" type="text" *ngIf="iseditslot"
+                            [(ngModel)]="slotdetail.end" placeholder="Room End Time"
+                            class="form-control datetimepicker">
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="slotdetail.menteeId && !iseditslot">
+                    <div class="col-md-12">
+                        <label class="col-form-label" *ngIf="!iseditslot"><strong> Mentee details : </strong></label>
+                        <br>
+                        <label class="col-form-label">Agenda : {{slotdetail.mentee.agenda}}</label><br>
+                        <label class="col-form-label">Name : {{slotdetail.mentee.username}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="unbookSlot()" *ngIf="!isMentor && !slotdetail.cansubscribe"
+                    class="btn btn-default">Cancel
+                    Booking</button>
+                <button type="button" *ngIf="isMentor && !iseditslot" class="btn btn-default"
+                    (click)="iseditslot = true">Edit
+                    Room</button>
+                <button type="button" *ngIf="isMentor && iseditslot && slotdetail._id" class="btn btn-default"
+                    (click)="editCreateSlot()">Save
+                    Room</button>
+                <button type="button" *ngIf="isMentor && iseditslot && !slotdetail._id" class="btn btn-default"
+                    (click)="createSlot()">Save
+                    Room</button>
+                <button type="button" class="btn btn-default" *ngIf="isMentor" (click)="deleteSlot()">Delete
+                    Room</button>
+                <button type="button" class="btn btn-default" (click)="closeEditSlot()">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

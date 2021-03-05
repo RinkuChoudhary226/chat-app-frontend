@@ -1,0 +1,43 @@
+<!--
+navbar - bootstrap class overridden to create the upper navbar div
+navbar-expand-lg - bootstrap class for adjustment depending on the screens
+navbar-light -- bootstrap class overridden to give own colourings
+fixed-top - bootstrap class for the navbar to always stay fixed at top
+-->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+<!-- <nav class="top-nav" expand="lg" fixed="top"> -->
+    <!-- <Navbar.Toggle aria-controls="basic-navbar-nav" ></Navbar.Toggle> -->
+    <!-- <button aria-controls="basic-navbar-nav" type="button" aria-label="Toggle navigation" class="navbar-toggler collapsed"> -->
+        <!-- <span class="navbar-toggler-icon"></span></button> -->
+    <!-- <label for="search-input"> -->
+      <i class="fa fa-search" aria-hidden="true"></i>
+   
+    <!-- </label> -->
+    <input type="text" [ngClass]="profNotCompleted ? 'disable' : ''" placeholder="Search for topics, mentors" class="search form-control" />
+    <!-- <Form.Control type="text" placeholder="Search for topics, mentors" className="search" id="search-input"></Form.Control> -->
+    <!-- <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end top-nav"> -->
+    <!-- <div class="justify-content-end top-nav navbar-collapse collapse"> -->
+    <div class="justify-content-end top-nav navbar-collapse collapse">
+      <div class="d-fex align-items-center navbar-nav">
+        <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" role="=button" routerLink="chat-box"  routerLinkActive="active">
+          <i class="fa fa-comments" ></i> </a>
+        <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" role="=button" routerLink="notif-settings"  routerLinkActive="active"><i class="fa fa-bell"></i> </a>
+        <div id="name" class="dropdown name">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          {{userName}} 
+          <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" [ngClass]="{'nav-link dropdown-link': !profNotCompleted, 'nav-link dropdown-link disable' : profNotCompleted}" class="nav-link dropdown-link" role="=button" routerLink="settings/profile"  routerLinkActive="active">Profile</a>
+            <a href="#" class="nav-link dropdown-link" role="=button" (click)="signout()">Signout</a>
+          </div>
+        </div>
+
+        <!-- <img class="avatar" src="../../assets/01.png"/> -->
+        <img *ngIf="profilePicExists" class="avatar" [src]="profilePic"/>
+        <img *ngIf="!profilePicExists" class="avatar" src="../../assets/defaultProfPic.png"/>
+      </div>
+    </div>
+    <!-- </Navbar.Collapse> -->
+    </nav>

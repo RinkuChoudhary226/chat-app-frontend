@@ -1,0 +1,9 @@
+<app-site-home *ngIf="!getSessionState"></app-site-home>
+
+
+<app-left-menu *ngIf="getSessionState"></app-left-menu>
+<main *ngIf="getSessionState" id="main-panel" class="main-panel">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</main>

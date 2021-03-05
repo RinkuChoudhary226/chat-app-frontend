@@ -1,0 +1,34 @@
+<div class="settingContent">
+    <h5  *ngIf="!profNotCompleted" class="mb-3">Interested Topics</h5>
+    <h5 *ngIf="profNotCompleted" class="mb-3">Step 3 - Interested Topics</h5>
+
+    <form [formGroup]="IntTopicsFrm" (ngSubmit)="onClickIntTopicsSubmit(IntTopicsFrm)">
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">What are the topics you are interested in?</label><label *ngIf="!isMentor" class="mandField">*</label>
+                </div>
+                <div class="row" formGroupName="intTopics">
+                    <div class="col-md-5 topicCheckBox" *ngFor="let oneTopic of allTopics">
+                        <input type="checkbox" name="{{oneTopic}}" placeholder="topics" formControlName="{{oneTopic}}"
+                        [ngModel]="userProfDtls.interestTopics.indexOf(oneTopic) >= 0">
+                        <span>&nbsp;&nbsp;{{oneTopic}}</span>      
+                    </div>          
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="height: 25px;">
+            <div *ngIf="errorMsg != ''" class="error-msg">&nbsp;{{errorMsg}}</div>
+            <div *ngIf="errorMsg == ''" class="success-msg">&nbsp;{{successMsg}}</div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <button *ngIf="!profNotCompleted" class="btn-primary mlr-40" name="save">Save Details</button>
+            <button *ngIf="!profNotCompleted" class="btn-primary btn-cancel mlr-40" name="btnCancel" (click)="onClickCancel()">Cancel</button>
+            <button *ngIf="profNotCompleted && !profileCompleted" class="btn-primary mlr-40" name="save">Submit</button>
+            <button *ngIf="profileCompleted" class="btn-primary mlr-40" name="OK" (click)="onClickProfileCompleteOK()">OK</button>
+        </div>
+
+    </form>
+
+</div>    

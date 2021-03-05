@@ -1,0 +1,100 @@
+<div id="sidebar" class="sidebar" data-color={this.props.color}>
+<div class="logo" style="background: #F7F7F7 0% 0% no-repeat padding-box">        
+  <img src="assets/logo.png" alt="logo_image"/>
+</div>
+
+<div class="sidebar-wrapper">
+<nav class="nav">
+  <!-- <ul >
+  <li><a class= "fa fa-home float-left" routerLink="user-home" routerLinkActive="active">&nbsp;Dashboard</a></li>
+  <li><a class="fa fa-home float-left" routerLink="user-proj" routerLinkActive="active">&nbsp;Projects</a></li>
+  </ul> -->
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="user-home" routerLinkActive="active">
+  <!-- <a href="#" class="nav-link" routerLink="user-home" routerLinkActive="active"> -->
+      <i class="fa fa-home float-left"  role="=button">
+    </i>
+    <span class="float-left">Home</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="settings/profile"  routerLinkActive="active" >
+  <!-- <a href="#" class="nav-link" routerLink="settings/profile"  routerLinkActive="active" > -->
+      <i class="fa fa-cog float-left" role="=button">
+    </i>
+    <span class="float-left">Settings</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="mentors" routerLinkActive="active">
+    <!-- <a href="#" class="nav-link" routerLink="mentors"  routerLinkActive="active" > -->
+    <i class="fa fa-users float-left" role="=button">
+    </i>
+    <span class="float-left">Mentors</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="user-proj/my-proj" routerLinkActive="active">
+    <!-- <a href="#" class="nav-link" routerLink="user-proj" routerLinkActive="active"> -->
+    <i class="fa fa-rocket float-left" role="=button">
+    </i>
+    <span class="float-left">Projects</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="chat-box" routerLinkActive="active">
+    <!-- <a href="#" class="nav-link" routerLink="chat-box"  routerLinkActive="active" > -->
+    <i class="fa fa-comments float-left" role="=button">
+    </i>
+    <span class="float-left">Chatbox</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="calendar" routerLinkActive="active">
+    <!-- <a href="#" class="nav-link" routerLink="calendar"  routerLinkActive="active" > -->
+    <i class="fa fa-calendar float-left" role="=button">
+    </i>
+    <span class="float-left">Calendar</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="learning-plan" routerLinkActive="active">
+    <!-- <a href="#" class="nav-link" routerLink="learning-plan"  routerLinkActive="active" > -->
+    <i class="fa fa-lightbulb-o float-left" role="=button">
+    </i>
+    <span class="float-left">Learning Plans</span>
+  </a>
+  <a href="#" [ngClass]="profNotCompleted ? 'nav-link disable' : 'nav-link'" routerLink="help-center" routerLinkActive="active">
+    <!-- <a href="#" class="nav-link" routerLink="help-center"  routerLinkActive="active" > -->
+    <i class="fa fa-home float-left" role="=button">
+    </i>
+    <span class="float-left">Help Center</span>
+  </a>
+
+</nav>
+
+</div>
+</div>
+
+<!-- <div class="sidebar-wrapper">
+  <nav>
+    <a href="#">
+      <i class="fa fa-home float-left" >
+      <span class="float-left">Dashboard</span>
+    </a> -->
+    <!-- <a href="#" class="active">
+      <i class="fa fa-users float-left" >
+      <span class="float-left">Mentors</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-comments float-left" >
+      <span class="float-left">Chat box</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-calendar float-left" >
+      <span class="float-left">Calender</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-rocket float-left" >
+      <span class="float-left">Projects</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-life-ring float-left" >
+      <span class="float-left">Help center</span>
+    </a>
+    <a href="#">
+      <i class="fa fa-cog float-left" >
+      <span class="float-left">Settings</span>
+    </a>    -->
+  <!-- </nav>
+</div> -->
+
+
+

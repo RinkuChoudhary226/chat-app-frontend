@@ -1,0 +1,18 @@
+<div class="ng-autocomplete">
+        <ng-autocomplete 
+          [placeholder]="'Search skils...'"
+          [data]="searchedSkills"
+          [searchKeyword]="'title'"
+          [itemTemplate]="itemTemplate"
+          (inputCleared)="clearSearch()"
+          (inputChanged)="getSkillsFromService($event)"
+          [historyListMaxNumber]="15"
+          [historyHeading]="'Recent search'"
+          [historyIdentifier]="'title'"
+          (selected)="select($event)"
+        >
+        </ng-autocomplete>
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.title"></a>
+        </ng-template>
+</div>

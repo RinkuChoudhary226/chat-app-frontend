@@ -1,0 +1,28 @@
+<div class="container-fluid content">
+    <!-- Header START -->
+    <h4 class="inline-header">Projects</h4>
+    <div class="clearfix"></div>
+
+    <div class="user-proj">
+        <div class="nav nav-pills proj-header">
+            <a href="#" class="nav-link right-border" routerLink="/user-proj/my-proj" routerLinkActive="active">My Projects
+            </a>
+            <a href="#" class="nav-link right-border" routerLink="/user-proj/all-proj" routerLinkActive="active">All Projects
+            </a>
+            <a href="#" class="nav-link" routerLink="/user-proj/create-proj" routerLinkActive="active">Create Projects
+            </a>
+            <div class="float-right d-flex align-items-center ml-auto">
+                <span>FILTERS: </span>
+                <div class="btn-group btn-group-toggle" role="group">
+                    <button type="button" class="btn  btn-outline-primary fa fa-list-ul" (click)="filtersClick()"></button>
+                </div>
+    
+            </div>
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    
+    </div>
+
+</div>

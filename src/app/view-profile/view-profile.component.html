@@ -1,0 +1,114 @@
+<div class="settingContent">
+    <div class="oneDetail">
+        <h5 class="mb-3">Personal Details&nbsp;&nbsp;
+            <a href="#" *ngIf="mentorId == ''" routerLink="/settings/personal-dtl"  routerLinkActive="active" >
+                <i class="fa fa-edit" role="button"></i>
+            </a>
+        </h5>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Name</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.fullname}}</strong></label></div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div><label for="">Age</label></div>
+                <div><label for="" class="data-label" *ngIF="persDtls.age != 0"><strong>{{persDtls.age}}</strong></label></div>
+            </div> -->
+            <div class="col-md-4">
+                <div><label for="">Email Address</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.email}}</strong></label></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Date Of Birth</label></div>
+                <div><label for="" class="data-label" ><strong>{{persDtls.dateOfBirth}}</strong></label></div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-md-4">
+                <div><label for="">Address</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.address}}</strong></label></div>
+            </div> -->
+            <div class="col-md-4">
+                <div><label for="">City</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.city}}</strong></label></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">State</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.state}}</strong></label></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Country</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.country}}</strong></label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Phone Number</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.countryCode}} {{persDtls.phoneNum}}</strong></label></div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div><label for="">Pincode / Zipcode</label></div>
+                <div><label for="" class="data-label"><strong>{{persDtls.pinCode}}</strong></label></div>
+            </div> -->
+        </div>
+
+    </div>
+    <div class="oneDetail">
+        <h5 class="mb-3">Professional Details&nbsp;&nbsp;
+            <a href="#" *ngIf="mentorId == ''" routerLink="/settings/prof-dtl"  routerLinkActive="active" >
+                <i class="fa fa-edit" role="button"></i>
+            </a>
+
+        </h5>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Job Title</label></div>
+                <div><label for="" class="data-label"><strong>{{profDtls.jobTitle}}</strong></label></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Languages You Know</label></div>
+                <div><label for="" class="data-label"><strong>{{profDtls.languagesArr}}</strong></label></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Industries You Work In</label></div>
+                <div><label for="" class="data-label"><strong>{{profDtls.industryWork}}</strong></label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Current Organization</label></div>
+                <div><label for="" class="data-label"><strong>{{profDtls.organization}}</strong></label></div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Your Skills</label></div>
+                <div><label for="" class="data-label"><strong>{{profDtls.skillsArr}}</strong></label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Resume</label></div>
+                <div><label for="" class="data-label"><strong>jouh_Resume.pdf</strong></label></div>
+            </div>
+        </div>
+    </div>
+    <div class="oneDetail">
+        <h5 class="mb-3">Interested Topics&nbsp;&nbsp;
+            <a href="#" *ngIf="mentorId == ''" routerLink="/settings/interest-topics"  routerLinkActive="active" >
+                <i class="fa fa-edit" role="button"></i>
+            </a>
+
+        </h5>
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Topics</label></div>
+                <div><label for="" class="data-label"><strong>{{profDtls.interestTopics}}</strong></label></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="errorMessage != ''" class="row justify-content-center" style="height: 25px;">
+        <div class="success-msg">&nbsp;{{errorMessage}}</div>
+    </div>
+
+</div>

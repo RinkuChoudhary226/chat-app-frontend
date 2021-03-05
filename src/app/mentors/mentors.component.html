@@ -1,0 +1,236 @@
+<div class="container-fluid content">
+
+
+
+    <!-- Header START -->
+    <div class="header">
+        <h4 class="inline-header">Our Mentors</h4>
+        <!-- Button Group START -->
+        <div class="float-right d-flex align-items-center">
+            <span>FILTERS: </span>
+            <div class="btn-group btn-group-toggle" role="group">
+                <button type="button" class="btn  btn-outline-primary fa fa-list-ul" (click)="listViewClick()"></button>
+                <button type="button" class="btn  btn-outline-primary fa fa-th-large"
+                    (click)="tileViewClick()"></button>
+                <button type="button" class="btn  btn-outline-primary fa fa-filter" (click)="filtersClick()"></button>
+            </div>
+
+        </div>
+        <!-- Button Group END -->
+    </div>
+    <!-- Header ENDS -->
+    <div class="clearfix"></div>
+
+    <!-- ############################## -->
+    <!-- FILTERS FORM - START -->
+    <!-- ############################## -->
+    <ng-container #vc></ng-container>
+    <ng-template #filtersModalTmpl>
+        <!-- Modal -->
+        <div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="lblFiltersModal"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="lblFiltersModal"> Filters
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                (click)="closeFiltersDialog()"> &times; </button>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="filtersformdata" (ngSubmit)="OnClickFiltersSubmit(filtersformdata)">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div><label for="">Languages</label></div>
+                                    <div>
+                                        <select class="txt-primary" formControlName="cntrlLang">
+                                            <option value="">--Select--</option>
+                                            <option *ngFor="let oneLang of alllanguages" (value)="oneLang">{{oneLang}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div><label for="">Rating</label></div>
+                                    <div>
+                                        <select class="txt-primary" formControlName="cntrlRating">
+                                            <option value="">--Select--</option>
+                                            <option value="5">5 Star</option>
+                                            <option value="4">4 Star</option>
+                                            <option value="3">3 Star</option>
+                                            <option value="2">2 Star</option>
+                                            <option value="1">1 Star</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div><label for="">Job Title</label></div>
+                                    <div>
+                                        <select class="txt-primary" formControlName="ctrlJobTitle">
+                                            <option value="">--Select--</option>
+                                            <option *ngFor="let oneJob of allJobTitle" (value)="oneJob">{{oneJob}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div><label for="">Topics</label></div>
+                                    <div>
+                                        <select class="txt-primary" formControlName="ctrlTopics">
+                                            <option value="">--Select--</option>
+                                            <option *ngFor="let oneTopic of allTopics" (value)="oneTopic">{{oneTopic}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="row justify-content-center mt-3">
+                                <button class="btn-primary mlr-40" name="save">Search</button>
+                                <button class="btn-primary btn-cancel mlr-40" name="btnCancel"
+                                    (click)="closeFiltersDialog()">Cancel</button>
+                            </div>
+
+
+                        </form>
+                        <!-- Filters form START -->
+                    </div>
+
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
+
+
+    </ng-template>
+    <!-- ############################## -->
+    <!-- FILTERS FORM - END -->
+    <!-- ############################## -->
+
+
+
+    <!-- Mentor Tile View START -->
+    <div *ngIf="!isListView" class="mentors mt-4 row text-center justify-content-center">
+
+        <div class="col-3" *ngFor="let mentor of mentorList">
+            <div class="card justify-content-center align-items-center">
+                <div class="rating d-flex flex-rows">
+                    <app-star-rating rating="{{mentor.starRating}}"></app-star-rating>
+                </div>
+                <!-- <div class="row no-mar-lr align-items-center"> -->
+                <!-- <div class="col-1 no-gutters"> -->
+                <!-- <img class="card-img-top" src="../../assets/02.png" /> -->
+                <img *ngIf="mentor.avatarImg != null && mentor.avatarImg != ''" class="card-img-top"
+                    [src]="mentor.avatarImg" />
+                <img *ngIf="mentor.avatarImg == null || mentor.avatarImg == ''" class="card-img-top"
+                    src="../../assets/defaultProfPic.png" />
+                <!-- </div> -->
+                <!-- <div class="col-2 no-gutters"> -->
+                <div class="card-title ">
+                    <strong>{{mentor.mentorName}}</strong>
+                    <br>
+                    <span class="special">{{mentor.jobTitle}}</span>
+                    <br>
+                </div>
+                <!-- </div> -->
+                <!-- <div class="col-7 no-gutters"> -->
+                <div class="card-text">
+                    <p class="no-gutters">{{mentor.jobDesc}}</p>
+                </div>
+                <!-- </div> -->
+                <!-- <div class="col-2 no-gutters"> -->
+                <div class="card-footer d-flex flex-row">
+                    <div class="footer-link1 flex-fill">
+                        <a href="#" [routerLink]="['/mentor-profile']" [queryParams]="{mentorId : mentor.mentorId}">
+                            <i class="fa fa-user">&nbsp;&nbsp;View Profile</i>
+                        </a>
+                    </div>
+                    <div class="footer-link1 flex-fill">
+                        <a href="#" [routerLink]="['/mentor-calendar',mentor.mentorId]">
+                            <i class="fa fa-calendar">&nbsp;&nbsp;Calendar</i>
+                        </a>
+                    </div>
+                    <div class="footer-link2 flex-fill">
+                        <a href="#">
+                            <i class="fa fa-comments">&nbsp;&nbsp;Message</i>
+                        </a>
+                    </div>
+                </div>
+                <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Mentor Tile View End -->
+
+
+    <!-- Mentor List View START -->
+    <div *ngIf="isListView" class="mentors list mt-4 row justify-content-center">
+
+        <div class="col-12" *ngFor="let mentor of mentorList">
+            <div class="card justify-content-center align-items-center">
+                <div class="row no-mar-lr align-items-center">
+                    <div class="col-1 no-gutters">
+                        <img *ngIf="mentor.avatarImg != null && mentor.avatarImg != ''" class="card-img-top"
+                            [src]="mentor.avatarImg" />
+                        <img *ngIf="mentor.avatarImg == null || mentor.avatarImg ==''" class="card-img-top"
+                            src="../../assets/defaultProfPic.png" />
+                    </div>
+                    <div class="col-2 no-gutters">
+                        <div class="card-title ">
+                            <strong>{{mentor.mentorName}}</strong>
+                            <br>
+                            <span class="special">{{mentor.jobTitle}}</span>
+                            <br>
+                            <div class="rating d-flex flex-rows justify-content-center">
+                                <app-star-rating rating="{{mentor.starRating}}"></app-star-rating>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 no-gutters">
+                        <div class="card-text">
+                            <p class="no-gutters">{{mentor.jobDesc}}</p>
+                        </div>
+                    </div>
+                    <div class="col-4 no-gutters">
+                        <div class="card-footer d-flex flex-row">
+                            <div class="footer-link1 flex-fill">
+                                <a href="#" [routerLink]="['/mentor-profile']"
+                                    [queryParams]="{mentorId : mentor.mentorId}">
+                                    <i class="fa fa-user">&nbsp;&nbsp;View Profile</i>
+                                </a>
+                            </div>
+                            <div class="footer-link1 flex-fill">
+                                <a href="#" [routerLink]="['/mentor-calendar',mentor.mentorId]">
+                                    <i class="fa fa-calendar">&nbsp;&nbsp;Calendar</i>
+                                </a>
+                            </div>
+                            <div class="footer-link2 flex-fill">
+                                <a href="#">
+                                    <i class="fa fa-comments">&nbsp;&nbsp;Message</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentor List END -->
+
+
+
+
+
+
+
+
+</div>

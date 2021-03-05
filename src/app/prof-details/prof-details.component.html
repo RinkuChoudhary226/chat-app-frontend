@@ -1,0 +1,103 @@
+<div class="settingContent">
+    <h5 *ngIf="!profNotCompleted" class="mb-3">Professional Details</h5>
+    <h5 *ngIf="profNotCompleted" class="mb-3">Step 2 - Professional Details</h5>
+
+
+
+    <form [formGroup]="profDtlsFrm" (ngSubmit)="onClickProfDtlsSubmit(profDtlsFrm)">
+        <div class="row">
+            <div class="col-md-4">
+                <div><label for="">Current Job Title</label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userProfDtls.jobTitle" formControlName="jobTitle"/></div>
+                <div><label for="">Current Organisation</label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userProfDtls.organization" formControlName="organization"/></div>
+                <div><label for="">Total Experience</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userProfDtls.totalExperience" formControlName="totalExp"/></div>
+                <div><label for="">Job Description</label><label class="mandField">*</label></div>
+                <div><input type="text" class="txt-primary" placeholder="" [ngModel]="userProfDtls.jobDescription" formControlName="jobDesc"/></div>
+                <div><label for="">Upload Resume</label></div>
+                <div class="iconFileUpload">
+                    <label class="fileInputName" id="fileInputLbl">{{fileName}}</label>
+                    <input  #fileUpload123 type="file" class="fileInput" (change)="resumeFileUpload($event)" 
+                    accept=".doc,.docx,application/msword,.pdf" formControlName="resumeFile" />
+                    <i class="fa fa-upload" (click)="fileInputClick()"></i>
+                </div>
+                <input type="checkbox" name="jobReferral" placeholder="" formControlName="jobReferral" [ngModel]="userProfDtls.jobRefNeeded">
+                <span>&nbsp;&nbsp;Are you looking for a Job Referral</span>      
+            </div>
+            <div class="col-md-4">
+                <div><label for="">Languages Known</label></div>
+                <div>
+                    <select class="txt-primary langDropDown" multiple [ngModel]="userProfDtls.languagesArr" formControlName="languages">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let oneLang of languages" [ngValue]="oneLang">{{oneLang}}</option>
+                    </select>
+                    <!-- &nbsp;&nbsp;
+                    <select class="txt-primary langDropDown" formControlName="lang2">
+                        <option value="">--Select--</option>
+                        <option *ngFor="let oneLang of languages" (value)="oneLang">{{oneLang}}</option>
+                    </select> -->
+                </div>
+                <div><label for="">Skills</label><label *ngIf="isMentor" class="mandField">*</label></div>
+                <div>
+                    <div *ngFor="let skill of skills">
+                        <app-skill-tag [skill]="skill"></app-skill-tag>
+                    </div>
+                    <!---select class="txt-primary langDropDown" multiple [ngModel]="userProfDtls.skillsArr" formControlName="skills">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let oneSkill of skills" [ngValue]="oneSkill">{{oneSkill}}</option>
+                    </select-->
+                    <!--&nbsp;&nbsp;
+                    <select class="txt-primary langDropDown" formControlName="skill2">
+                        <option value="">--Select--</option>
+                        <option *ngFor="let oneSkill of skills" (value)="oneSkill">{{oneSkill}}</option>
+                    </select> -->
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div><label for="">What are the industries you work in?</label><label class="mandField">*</label>
+                </div>
+                <div class="row" formGroupName="industries">
+                    <div class="col-md-5 indusCheckBox" *ngFor="let oneInd of allIndustries">
+                        <input type="checkbox" id="{{oneInd}}" placeholder="" formControlName="{{oneInd}}"
+                        [ngModel]="userProfDtls.industryWork.indexOf(oneInd) >= 0"
+                            >
+                        <span>&nbsp;&nbsp;{{oneInd}}</span>      
+                    </div>          
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="height: 25px;">
+            <div *ngIf="errorMsg != ''" class="error-msg">&nbsp;{{errorMsg}}</div>
+            <div *ngIf="errorMsg == ''" class="success-msg">&nbsp;{{successMsg}}</div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <button *ngIf="!profNotCompleted" class="btn-primary mlr-40" name="save">Save Details</button>
+            <button *ngIf="!profNotCompleted" class="btn-primary btn-cancel mlr-40" name="btnCancel" (click)="onClickCancel()">Cancel</button>
+            <button *ngIf="profNotCompleted" class="btn-primary mlr-60" name="save">Interested Topics</button>
+        </div>
+
+    </form>
+
+</div>    
+
+<div class="ng-autocomplete">
+        <ng-autocomplete 
+          [placeholder]="'Search skils...'"
+          [data]="searchedskills"
+          [searchKeyword]="'title'"
+          [itemTemplate]="itemTemplate"
+          (inputCleared)="clearSearch()"
+          (inputChanged)="getSkils($event)"
+          [historyListMaxNumber]="15"
+          [historyHeading]="'Recent search'"
+          [historyIdentifier]="'title'"
+          (selected)="select($event)"
+        >
+        </ng-autocomplete>
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.title"></a>
+        </ng-template>
+</div>

@@ -1,0 +1,49 @@
+@import "../../styles/colors";
+
+
+.card.default {
+    box-shadow: 0px 6px 10px #6E6E6E29;
+    padding: 24px;
+    // margin-bottom: 32px;
+    border-radius: 15px;
+    //Added - START
+    height : 300px; 
+    overflow : auto;
+    &.buy-plan {
+        height : 375px;
+        margin-bottom: 40 px;
+    }
+    .plan-opt {
+        list-style-type: none;
+        margin: 0 0 10px 0;
+        padding: 0;
+        font-size: 11px;
+        li {
+            margin-bottom: 15px;
+        }
+    }
+
+    //Added - END
+    .card-title {
+       color: #909090;
+    }
+    .card-text {
+        border-bottom: 1px solid rgba(0,0,0,.125);
+        &:last-child {
+            border: none;
+        }
+    }
+    .completed {
+        // font-size: 8.6rem;
+        font-size: 95px;
+        color: $orange;
+        letter-spacing: 5px;
+    }
+    .total{
+        // font-size: 5rem;
+        font-size: 65px;
+        color: #909090;
+        letter-spacing: 5px;
+    }
+}
+
