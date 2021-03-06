@@ -1,102 +1,512 @@
-<div class="container-fluid content">
-    <!-- Header START -->
-    <div class="header">
-        <h4 class="inline-header">Chat Box</h4>
-    </div>
-    <div class="clearfix"></div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container app">
+    <div class="row app-one">
+        <div class="col-sm-4 side">
+            <div class="side-one">
+                <div class="row heading">
+                    <div class="col-sm-3 col-xs-3 heading-avatar">
+                        <div class="heading-avatar-icon">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
+                        <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-2 col-xs-2 heading-compose  pull-right">
+                        <i class="fa fa-comments fa-2x  pull-right" aria-hidden="true"></i>
+                    </div>
+                </div>
 
-    <div class="mt-3 row no-gutters chat">
-        <!-- <div class="chat"> -->
-            <div class="col-md-4 no-gutters">
-                <div class="chat-card left-card">
-                    <div class="chat-header">
-                        <label class="title">All Messages</label>
-                        <div id="name" class="dropdown">
-                            <a class="new-btn" data-toggle="dropdown" href="#" id="newBtnDropDownMenu">
-                                New<i class=""></i>
-                            </a>
-                                        
-                            <div class="dropdown-menu" aria-labelledby="newBtnDropDownMenu">
-                                <a class="dropdown-item" role="=button" (click)="selectedNewMentorClick(oneMent.mentorId)"
-                                    *ngFor="let oneMent of allDBMentors">{{oneMent.mentorName}}</a>
+                <div class="row searchBox">
+                    <div class="col-sm-12 searchBox-inner">
+                        <div class="form-group has-feedback">
+                            <input id="searchText" type="text" class="form-control" name="searchText"
+                                placeholder="Search">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row sideBar">
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="search">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <input type="text" placeholder="Search Mentor" class="txt-search1" />
-                    </div>
-                    <nav class="nav mentors-list" #mentorListNav>
-                        <a [routerlink]="" role="button" *ngFor="let oneMent of allMentors" class="nav-link mentors"
-                            [ngClass]="{'active-mentor' : selectedMentor.mentorId == oneMent.mentorId}"
-                            (click)="onMentorClick(oneMent.mentorId)" id="{{oneMent.mentorId}}">
-                            <div class="row no-gutters" >
-                                <div class="col-md-1">
-                                    <span *ngIf="oneMent.userOnline == true" class="userOnline"></span>
+
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
                                 </div>
-                                <div class="col-md-2 mentor-img">
-                                    <!-- <img class="" src="../../assets/02.png" /> -->
-                                    <img *ngIf="oneMent.avatarImg != null && oneMent.avatarImg != ''" class="avatar" [src]="oneMent.avatarImg" alt="First Slide" />
-                                    <img *ngIf="oneMent.avatarImg == null || oneMent.avatarImg == ''" class="avatar" src="../../assets/defaultProfPic.png" alt="First Slide" />
-                                </div>
-                                <div class="col-md-7 mentor-name">
-                                    <p class="name">{{oneMent.mentorName}}</p>
-                                    <p class="title">{{oneMent.jobTitle}}</p>
-                                </div>
-                                <div class="col-md-2 chat-summary">
-                                    <p *ngIf="oneMent.chatTime !== ''" class="chat-time">{{oneMent.formatChatTime}}</p>
-                                    <p *ngIf="oneMent.unReadMessages > 0 && oneMent.unReadMessages <= 15" class="chatmsg-count">{{oneMent.unReadMessages}}</p>
-                                    <p *ngIf="oneMent.unReadMessages > 15" class="chatmsg-count">\>15</p>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-two">
+                <div class="row newMessage-heading">
+                    <div class="row newMessage-main">
+                        <div class="col-sm-2 col-xs-2 newMessage-back">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-sm-10 col-xs-10 newMessage-title">
+                            New Chat
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row composeBox">
+                    <div class="col-sm-12 composeBox-inner">
+                        <div class="form-group has-feedback">
+                            <input id="composeText" type="text" class="form-control" name="searchText"
+                                placeholder="Search People">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row compose-sideBar">
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sideBar-body">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                            <div class="avatar-icon">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-9 sideBar-main">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-8 sideBar-name">
+                                    <span class="name-meta">John Doe
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                                    <span class="time-meta pull-right">18:18
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8 conversation">
+            <div class="row heading">
+                <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
+                    <div class="heading-avatar-icon">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                    </div>
+                </div>
+                <div class="col-sm-8 col-xs-7 heading-name">
+                    <a class="heading-name-meta">John Doe
+                    </a>
+                    <span class="heading-online">Online</span>
+                </div>
+                <div class="col-sm-1 col-xs-1  heading-dot pull-right">
+                    <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="row message" id="conversation">
+                <div class="row message-previous">
+                    <div class="col-sm-12 previous">
+                        <a onclick="previous(this)" id="ankitjain28" name="20">
+                            Show Previous Message!
                         </a>
-                    </nav>
+                    </div>
+                </div>
 
+                <div class="row message-body">
+                    <div class="col-sm-12 message-main-receiver">
+                        <div class="receiver">
+                            <div class="message-text">
+                                Hi, what are you doing?!
+                            </div>
+                            <span class="message-time pull-right">
+                                Sun
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-8 no-gutters">
-                <div class="chat-card right-card">
-                    <div class="chat-header borderbottom">
-                        <label class="mentorTitle">{{selectedMentor.mentorName}}</label>
-                        <div class="chat-buttons">
-                            <!-- <a href="#" role="button" ><i class="fa video fa-video-camera" aria-hidden="true"></i></a>
-                            <a href="#" role="button" ><i class="fa phone fa-phone" aria-hidden="true"></i></a>
-                            <a href="#" role="button" ><i class="fa profile fa-info" aria-hidden="true"></i></a> -->
-                        </div>
-                    </div>
-                    <div class="chat-content-area" #chatArea>
-                        <div class="row no-gutters comment" *ngFor="let oneMsg of allMessages">
-                            <div *ngIf="oneMsg.authorId != selectedMentor.mentorId" class="col-md-1 profile-img">
-                                <!-- <img class="" [src]="selectedMentor.avatarImg"/> -->
-                                <img *ngIf="profilePic != null && profilePic != ''" [src]="profilePic" />
-                                <img *ngIf="profilePic == null || profilePic == ''" src="../../assets/defaultProfPic.png" />
-                        </div>
-                            <div class="col-md-11 float-left content-chat">
-                                <p class="">{{formatMsgTime(oneMsg.chatTime)}}</p>
-                                <p class="">{{oneMsg.chatMsg}}</p>
+
+                <div class="row message-body">
+                    <div class="col-sm-12 message-main-sender">
+                        <div class="sender">
+                            <div class="message-text">
+                                I am doing nothing man!
                             </div>
-                            <div *ngIf="oneMsg.authorId == selectedMentor.mentorId" class="col-md-1 profile-img">
-                                <!-- <img class="" src="../../assets/02.png"/> -->
-                                <img *ngIf="selectedMentor.avatarImg != null && selectedMentor.avatarImg != ''" [src]="selectedMentor.avatarImg" />
-                                <img *ngIf="selectedMentor.avatarImg == null || selectedMentor.avatarImg == ''" src="../../assets/defaultProfPic.png" />
-                            </div>
+                            <span class="message-time pull-right">
+                                Sun
+                            </span>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <form [formGroup]="perMsgFrm" (ngSubmit)="onMsgSendClick(perMsgFrm)">
-                            <textarea class="input-box" rows="3" maxlength=250 id="persMsg" [ngModel]="personalMessage" formControlName="persMsg"></textarea>
-                            <div class="input-box-buttons">
-                                <!-- <a href="#" disabled role="button" class="text"><i class=""></i></a>
-                                <a href="#" disabled role="button" class="smiley"><i class=""></i></a>
-                                <a href="#" disabled role="button" class="attach"><i class=""></i></a> -->
-                                <!-- <a href="#" role="button" class="send" (click)="onMsgSendClick(perMsgFrm)"><i class=""></i></a> -->
-                                <input type="button" class="send" (click)="onMsgSendClick(perMsgFrm)"/>
-                            </div>
-                        </form>
-                        
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
+
+            <div class="row reply">
+                <div class="col-sm-1 col-xs-1 reply-emojis">
+                    <i class="fa fa-smile-o fa-2x"></i>
+                </div>
+                <div class="col-sm-9 col-xs-9 reply-main">
+                    <textarea class="form-control" rows="1" id="comment"></textarea>
+                </div>
+                <div class="col-sm-1 col-xs-1 reply-recording">
+                    <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-1 col-xs-1 reply-send">
+                    <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -41,17 +41,17 @@ export class ChatBox1Component implements OnInit {
 
   ngOnInit(): void {
 
-    $(".heading-compose").click(function() {
-      $(".side-two").css({
-        "left": "0"
-      });
-    });
+    // $(".heading-compose").click(function() {
+    //   $(".side-two").css({
+    //     "left": "0"
+    //   });
+    // });
 
-    $(".newMessage-back").click(function() {
-      $(".side-two").css({
-        "left": "-100%"
-      });
-    });
+    // $(".newMessage-back").click(function() {
+    //   $(".side-two").css({
+    //     "left": "-100%"
+    //   });
+    // });
 
     this.socket.once('updateOnlineUser', (onlineUsers) => {
       if(onlineUsers !== null && onlineUsers !== undefined && onlineUsers.length > 0)
