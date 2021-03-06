@@ -12,10 +12,10 @@ import { MentorChat } from '../classes/mentor-chat';
 
 @Component({
   selector: 'app-chat-box',
-  templateUrl: './chat-box.component.html',
-  styleUrls: ['./chat-box.component.scss']
+  templateUrl: './chat-box.component1.html',
+  styleUrls: ['./chat-box.component1.scss']
 })
-export class ChatBoxComponent implements OnInit {
+export class ChatBox1Component implements OnInit {
   // @ViewChild('mentorListNav') mentorListNav : TemplateRef <any>;
   @ViewChild('chatArea') chatArea : ElementRef;
   allMentors : MentorChat[] = [];
@@ -40,6 +40,19 @@ export class ChatBoxComponent implements OnInit {
   constructor(private socket : Socket, private longinSrv : MentorService) { }
 
   ngOnInit(): void {
+
+    $(".heading-compose").click(function() {
+      $(".side-two").css({
+        "left": "0"
+      });
+    });
+
+    $(".newMessage-back").click(function() {
+      $(".side-two").css({
+        "left": "-100%"
+      });
+    });
+
     this.socket.once('updateOnlineUser', (onlineUsers) => {
       if(onlineUsers !== null && onlineUsers !== undefined && onlineUsers.length > 0)
       {
